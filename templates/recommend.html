@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Recommendation</title>
+</head>
+<body>
+
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Recommender System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+    /* Navbar Styling */
+.navbar {
+    background-color: #00a65a; /* Green background */
+    border: none; /* Remove default border */
+}
+
+.navbar-brand, .navbar-nav > li > a {
+    color: white; /* Navbar text color */
+    font-size: 18px; /* Larger text for better readability */
+}
+
+.navbar-brand img {
+    vertical-align: middle; /* Align the logo image with text */
+}
+
+.navbar-nav > li > a:hover {
+    background-color: #007d48; /* Darker green on hover for the links */
+    color: white; /* Ensure text remains white on hover */
+}
+
+/* No border or shadow on the navbar */
+.navbar-default {
+    box-shadow: none;
+    border: none;
+}
+/* Simple Styling for "My Book Recommender" in the navbar */
+.navbar-brand {
+    font-size: 30px; /* Medium size for readability */
+    font-weight: bold; /* Bold for emphasis */
+    font-family: 'Arial', sans-serif; /* Clean, modern font */
+    color: white; /* White color for contrast */
+    text-transform: none; /* Normal case for a more casual look */
+    letter-spacing: 1px; /* Slight space between letters for clarity */
+    display: flex; /* Flexbox to align the image with the text */
+    align-items: center; /* Vertically center the image with the text */
+}
+
+.navbar-brand img {
+    margin-left: 10px; /* Space between text and logo */
+    height: 80px; /* Adjust logo size */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 24px; /* Reduce font size for smaller screens */
+    }
+    .navbar-brand img {
+        height: 80px; /* Adjust logo size accordingly */
+    }
+}
+/* Navbar Styling */
+.navbar {
+    background-color: #00a65a; /* Green background */
+    border: none; /* Remove default border */
+}
+
+/* Styling for "My Book Recommender" */
+.navbar-brand {
+    font-size: 30px; /* Medium size for readability */
+    font-weight: bold; /* Bold for emphasis */
+    font-family: 'Arial', sans-serif; /* Clean, modern font */
+    color: white; /* White color for contrast */
+    margin-right: 500px; /* Pushes the links to the left */
+}
+
+.navbar-nav {
+    margin-left: 0; /* Aligns the nav items to the left */
+}
+
+/* Navigation Links Styling */
+.navbar-nav > li > a {
+    color: white; /* Link color */
+    padding: 15px 20px; /* Padding for better click area */
+    text-decoration: none; /* Remove underline */
+}
+
+.navbar-nav > li > a:hover {
+    background-color: #007d48; /* Darker green on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 24px; /* Reduce font size for smaller screens */
+    }
+}
+/* General styling for the body */
+body {
+    background-color: black; /* Black background for the entire page */
+    color: white; /* White text color for contrast */
+    font-family: Arial, sans-serif; /* Font family for consistency */
+}
+
+/* Container styling */
+.container {
+    margin: 20px auto; /* Center the container with some margin */
+}
+
+/* Row styling */
+.row {
+    margin-top: 30px; /* Space above each row */
+}
+
+/* Form styling */
+form {
+    margin-bottom: 20px; /* Space below the form */
+}
+
+/* Input field styling */
+input[type="text"] {
+    background-color: #333; /* Dark background for input */
+    color: white; /* White text color */
+    border: 1px solid #555; /* Gray border */
+    padding: 10px; /* Padding inside the input */
+    width: 100%; /* Full width for input */
+    box-sizing: border-box; /* Include padding and border in element's total width */
+}
+
+input[type="text"]:focus {
+    background-color: #222; /* Darker background on focus */
+    border-color: #00a65a; /* Green border on focus */
+}
+
+/* Button styling */
+.btn-warning {
+    background-color: #f0ad4e; /* Warning button background color */
+    border-color: #eea236; /* Warning button border color */
+    color: white; /* Button text color */
+    padding: 10px 15px; /* Padding for button */
+}
+
+.btn-warning:hover {
+    background-color: #ec971f; /* Darker background on hover */
+    border-color: #d58512; /* Darker border on hover */
+}
+
+/* Card styling */
+.card {
+    background-color: #222; /* Dark card background */
+    border: 1px solid #333; /* Card border color */
+    padding: 15px; /* Padding inside the card */
+    text-align: center; /* Centered text inside card */
+    border-radius: 10px; /* Rounded corners for cards */
+    margin-top: 15px; /* Space above each card */
+}
+
+.card img {
+    width: 100%; /* Makes the image fit the card */
+    height: auto; /* Maintains the aspect ratio */
+    border-radius: 8px; /* Rounded corners for the image */
+}
+
+/* Heading styles */
+h1 {
+    font-size: 50px; /* Size for the main heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+h3, h4 {
+    color: white; /* Heading text color */
+}
+
+h3 {
+    font-size: 22px; /* H3 text size */
+    margin-top: 15px; /* Margin at the top */
+}
+
+h4 {
+    font-size: 18px; /* H4 text size */
+    color: #aaa; /* Lighter color for subtext */
+}
+        .no-data-message {
+    background-color: #222; /* Dark background for the message box */
+    color: white; /* White text color */
+    padding: 20px; /* Padding around the text */
+    border-radius: 10px; /* Rounded corners */
+    border: 1px solid #555; /* Border for the message box */
+    font-size: 24px; /* Font size for the message */
+    margin: 0 auto; /* Center the message */
+    width: fit-content; /* Fit to content */
+}
+
+
+
+    </style>
+</head>
+<style>
+    .text-white{
+    color:white
+    }
+</style>
+
+<body style="background-color:black">
+
+    <nav class="navbar" style="background-color:#00a65a">
+        <p class="navbar-brand">My Book Recommender<img src="https://png.pngtree.com/png-clipart/20240209/ourmid/pngtree-my-book-illustration-png-image_11602266.png" width="102" height="100"> </p>
+        <ul class="nav navbar-nav">
+            <li> <a href="/">Home</a></li>
+            <li> <a href="/recommend">Recommend</a></li>
+            <li> <a>contact</a></li>
+        </ul>
+
+        
+    </nav>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class = "col-12">
+                <h1 style="font-size:50px" class="text-white">Recommend Books</h1>
+                <form action="/recommend_books" method="post">
+                    <input name="user_input" type="text" class="form-control"> <br>
+                    <input  type="submit" class="btn btn-warning">
+                </form>
+            </div>
+                {% if data %}
+                    {% for i in data%}
+                        <div class="col-md-2" style = "margin-top:30px">
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <img class="card-img-top" src="{{i[2]}}">
+                                </div>
+                                <h3>{{i[0]}}</h3>
+                                <h4>{{i[1]}}</h4>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+            <br>
+            <br>
+                    <div class="col-12 text-center" style="margin-top: 30px;">
+                        <div class="no-data-message">
+
+                            <h2>Are you a Bibliophile??</h2>
+                        </div>
+                    </div>
+                {% endif %}
+
+
+        </div>
+
+    </div>
+
+</body>
+</html>
+</html>
