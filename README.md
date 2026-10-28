@@ -11,7 +11,7 @@ Thoughtful, explainable book discovery powered by a hybrid recommendation engine
 [![FastAPI](https://img.shields.io/badge/API-FastAPI-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 
-**Live demo:** deployment in progress — public app and API URLs will appear here after verification.
+**Live demo:** deployment in progress — the public app URL will be added after the GitHub Pages deployment is verified.
 
 </div>
 
@@ -37,7 +37,11 @@ Folio grew from a book-recommendation proof of concept into a full-stack portfol
 
 ## 🚀 Live links
 
-Deployment is not published yet. The public website, API, and API docs will be linked in this section once the services are live and checked.
+The API is live on Render. The website link will be published here after the GitHub Pages deployment and browser/API integration are verified.
+
+- **API:** [Folio Book Discovery API](https://folio-book-api.onrender.com)
+- **API health:** [Health check](https://folio-book-api.onrender.com/health)
+- **Interactive API docs:** [Swagger UI](https://folio-book-api.onrender.com/docs)
 
 ## 🖥️ Product preview
 
@@ -112,16 +116,16 @@ Folio keeps a browser-generated demo reader ID in local storage; this is **not a
 
 ## ☁️ Deploy for free
 
-The free hobby setup is **Vercel Hobby (frontend) + Render Free (API) + Neon Free (PostgreSQL)**. It avoids Render’s expiring free database and Render’s non-persistent local filesystem.
+The free hobby setup is **GitHub Pages (frontend) + Render Free (API) + Neon Free (PostgreSQL)**. It avoids Render’s expiring free database and Render’s non-persistent local filesystem. The Next.js app is statically exported for GitHub Pages and calls the separate FastAPI service.
 
 > **Free-tier trade-off:** Render Free spins the API down after 15 minutes without traffic; the first request after idle can take about a minute. Neon Free is persistent, but has storage, compute, and transfer limits. Vercel Hobby is intended for personal, non-commercial projects. Free-tier limits and terms can change—review the linked provider pages before deploying.
 
 1. **Create the database:** make a free project on [Neon](https://neon.com/), then copy the connection string for its Postgres database. Keep it private.
-2. **Deploy the API:** sign in to [Render](https://render.com/), choose **New → Blueprint**, and select this GitHub repository. The root [`render.yaml`](./render.yaml) creates a free Python web service. Set the prompted `DATABASE_URL` to the Neon connection string and `CORS_ORIGINS` to `http://localhost:3000` for initial testing.
-3. **Deploy the frontend:** import the same repo to [Vercel](https://vercel.com/). Set **Root Directory** to `frontend`. Add the environment variable `NEXT_PUBLIC_API_URL=https://YOUR-RENDER-SERVICE.onrender.com/api/v1` and deploy.
-4. **Connect the sites:** in Render, set `CORS_ORIGINS` to the exact Vercel production URL, e.g. `https://YOUR-PROJECT.vercel.app`, then redeploy the API.
-5. **Verify before sharing:** open `https://YOUR-RENDER-SERVICE.onrender.com/health`, `/docs`, and the Vercel URL. Rate a book and reload to confirm ratings are stored in Neon.
-6. **Publish the URLs:** replace the pending notice in **Live links** above with the tested website, API, and API-docs addresses.
+2. **Deploy the API:** sign in to [Render](https://render.com/), choose **New → Blueprint**, and select this GitHub repository. The root [`render.yaml`](./render.yaml) creates a free Python web service. Set `DATABASE_URL` to the Neon connection string and `CORS_ORIGINS` to include `https://shreyansh01234.github.io`.
+3. **Enable GitHub Pages:** in the repository, open **Settings → Pages** and set the build/deployment source to **GitHub Actions**.
+4. **Deploy the frontend:** push to `main` or run **Deploy frontend to GitHub Pages** from the repository’s Actions tab. The workflow in [`.github/workflows/deploy-frontend.yml`](./.github/workflows/deploy-frontend.yml) builds the app with the Render API URL and publishes it at `https://shreyansh01234.github.io/book-recommender-system1/`.
+5. **Verify before sharing:** open the GitHub Pages URL and confirm search, recommendations, and rating requests reach the API. Open the API [health check](https://folio-book-api.onrender.com/health) and [docs](https://folio-book-api.onrender.com/docs) as well.
+6. **Publish the website link:** add it to **Live links** only after the Pages deployment and frontend/API integration are verified.
 
 Render Blueprints will ask you to provide `DATABASE_URL` and `CORS_ORIGINS`; neither setting should be committed to Git. Never publish database credentials, tokens, or production secrets.
 
