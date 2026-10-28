@@ -11,7 +11,7 @@ Thoughtful, explainable book discovery powered by a hybrid recommendation engine
 [![FastAPI](https://img.shields.io/badge/API-FastAPI-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-4169E1?logo=postgresql&logoColor=white)](https://www.postgresql.org/)
 
-**Live demo:** deployment in progress — the public app URL will be added after the GitHub Pages deployment is verified.
+**Live demo:** [Open Folio](https://shreyansh01234.github.io/book-recommender-system1/)
 
 </div>
 
@@ -37,8 +37,9 @@ Folio grew from a book-recommendation proof of concept into a full-stack portfol
 
 ## 🚀 Live links
 
-The API is live on Render. The website link will be published here after the GitHub Pages deployment and browser/API integration are verified.
+The frontend is live on GitHub Pages and connected to the Render API.
 
+- **Web app:** [Folio — Book Discovery](https://shreyansh01234.github.io/book-recommender-system1/)
 - **API:** [Folio Book Discovery API](https://folio-book-api.onrender.com)
 - **API health:** [Health check](https://folio-book-api.onrender.com/health)
 - **Interactive API docs:** [Swagger UI](https://folio-book-api.onrender.com/docs)
@@ -79,7 +80,7 @@ The current ranking blend assigns 52% to collaborative feedback, 20% to metadata
 | Storage | PostgreSQL on Neon; SQLite for local development and tests |
 | Data and model | Original cosine item similarities · exported JSON catalog |
 | Quality | pytest · ESLint · TypeScript · GitHub Actions |
-| Free hobby deployment | Vercel Hobby · Render Free API · Neon Free Postgres |
+| Free hobby deployment | GitHub Pages · Render Free API · Neon Free Postgres |
 
 ## 🛠️ Run locally
 
